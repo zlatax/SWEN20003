@@ -10,6 +10,8 @@ import java.util.Random;
 public class BagelTest extends AbstractGame {
     private Image smiley;
     private Image bagel;
+    private Image player, ball;
+    private Point playerPos, ballPos;
     private double x = 100;
     private double y = 100;
 
