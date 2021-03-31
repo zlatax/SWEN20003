@@ -1,10 +1,13 @@
 import bagel.*;
 import java.lang.*;
+import java.text.DecimalFormat;
 
 public class catchBall extends AbstractGame {
     private Image player,ball;
     private Point playerPos, ballPos;
     private Font conform = new Font("res/conformable.otf",24);
+    private static DecimalFormat df = new DecimalFormat("0.00");
+
 
     public catchBall() {
         super(800,600,"CatchBall");
@@ -34,6 +37,13 @@ public class catchBall extends AbstractGame {
         }
         if (input.isDown(Keys.DOWN)) {
             playerPos.setY(playerPos.getY()+STEP_SIZE);
+        }
+
+        if (input.wasPressed(Keys.ENTER)) {
+            Point dir = playerPos.getDirection(ballPos);
+            playerPos.setX(playerPos.getX()+dir.getX()*STEP_SIZE);
+            playerPos.setY(playerPos.getY()+dir.getY()*STEP_SIZE);
+            System.out.println(df.format(playerPos.getX())+","+df.format(playerPos.getY()));
         }
 
         if (input.wasPressed(Keys.ESCAPE)) {

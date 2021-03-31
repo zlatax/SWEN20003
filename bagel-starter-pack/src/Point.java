@@ -31,4 +31,11 @@ public class Point {
     return Math.sqrt(Math.pow(this.x - other.getX(),2) + Math.pow((this.y - other.getY()) ,2));
   }
 
+  public Point getDirection (Point other) {
+    double xd = (other.getX()-this.getX())/distanceTo(other);
+    double yd = (other.getY()-this.getY())/distanceTo(other);
+
+    return new Point(xd,yd);
+  }
+
 }
